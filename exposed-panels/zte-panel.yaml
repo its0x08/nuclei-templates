@@ -9,15 +9,18 @@ requests:
   - method: GET
     path:
       - "{{BaseURL}}"
+    matchers-condition: and
     matchers:
       - type: word
         words:
           - "ZTE Corporation. All rights reserved. </div>"
           - '<form name="fLogin" id="fLogin" method="post"  onsubmit="return false;" action="">'
         part: body
-        condtion: and
+        condtion: or
 
       - type: word
         words:
-          - "Mini web server 1.0 ZTE corp 2005."
+          - "Mini web server"
+          - "ZTE corp"
         part: header
+        condition: or
